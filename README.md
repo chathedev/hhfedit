@@ -59,7 +59,9 @@ cd harnosandshf-editor
 \`\`\`bash
 npm install
 \`\`\`
-**Note**: If you encounter an error related to `zustand` (e.g., "The 'zustand' module does not provide an export named 'default'"), running `npm install` again after this update should resolve it, as `zustand` has been added as a direct dependency to help with module resolution.
+**Important Note on `zustand` Error**: If you encounter the error "The 'zustand' module does not provide an export named 'default'", it's likely due to a version conflict where TinaCMS or one of its dependencies is trying to import `zustand`'s `create` function as a default export. The `package.json` now includes an `overrides` section to force `zustand` to version `^4.5.0`, which uses named exports. **Please ensure you run `npm install` again after this change to apply the override.** This should resolve the issue by ensuring all parts of the project use the correct `zustand` import style.
+
+**Important Note on `@tinacms/client` Module Loading in Preview**: You might encounter an error like "Failed to load "@tinacms/client" from "blob:..." Modules must be served with a valid MIME type like application/javascript." in the v0 preview environment. This error indicates a challenge with how the `Next.js` runtime (used for v0 previews) serves certain complex third-party modules. The code for importing `useDocument` from `@tinacms/client` is correct for a standard Next.js setup. **This issue is likely specific to the preview environment and should not prevent the project from building and running correctly when deployed to Vercel or run locally.**
 
 ### 3. Cloudflare Access Setup
 

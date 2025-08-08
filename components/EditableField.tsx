@@ -1,7 +1,7 @@
 "use client"
 
 import { useTina } from "tinacms/dist/react"
-import { useDocument } from "tinacms/dist/react"
+import { useDocument } from "@tinacms/client" // Correct import path for useDocument
 import { useEffect, useState } from "react"
 
 interface EditableFieldProps {
