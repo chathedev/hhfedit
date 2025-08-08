@@ -1,5 +1,5 @@
 import { cookies } from "next/headers"
-import { TinaEditProvider } from "tinacms/dist/edit-state"
+import { TinaEditProvider } from "tinacms/dist/react"
 import { EditableField } from "@/components/EditableField"
 import { EditGate } from "@/components/EditGate"
 import { Button } from "@/components/ui/button"
